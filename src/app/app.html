@@ -1,0 +1,19 @@
+<header class="app-header">
+  <a class="app-brand" routerLink="/workouts">
+    <ng-icon name="lucideWaves" aria-hidden="true" />
+    <span>SessionLab</span>
+  </a>
+
+  <div class="app-header__right">
+    <nav class="app-nav" aria-label="Main navigation">
+      <a routerLink="/workouts" routerLinkActive="app-nav__link--active">Workouts</a>
+      <a routerLink="/import" routerLinkActive="app-nav__link--active">Import FIT</a>
+    </nav>
+
+    <app-notification-center />
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>

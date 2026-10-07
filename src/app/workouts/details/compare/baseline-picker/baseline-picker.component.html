@@ -1,0 +1,13 @@
+<label class="baseline-picker">
+  <span>Baseline workout</span>
+  <select [value]="selectedId() ?? ''" (change)="select($event)">
+    <option value="">Select workout</option>
+    @for (option of workouts(); track option.id) {
+      @if (option.id !== currentWorkoutId()) {
+        <option [value]="option.id">
+          {{ option.startedAt | date: 'mediumDate' }} · {{ option.distanceMeters }} m
+        </option>
+      }
+    }
+  </select>
+</label>

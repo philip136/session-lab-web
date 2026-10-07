@@ -1,0 +1,27 @@
+.segment-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1.3fr) repeat(4, minmax(95px, 0.7fr));
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--sl-border-soft);
+  border-radius: 10px;
+  background: var(--sl-bg-deep);
+  font-size: 13px;
+}
+.segment-row > div {
+  display: grid;
+  gap: 3px;
+}
+.segment-row > div span {
+  color: var(--sl-text-dim);
+  font-size: 11px;
+}
+@media (max-width: 900px) {
+  .segment-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .segment-row span:nth-child(n + 4) {
+    display: none;
+  }
+}

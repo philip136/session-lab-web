@@ -1,0 +1,37 @@
+<div class="comparison-table">
+  <div class="comparison-table__header">
+    <span>Metric</span>
+    <strong>Current</strong>
+    <strong>Baseline</strong>
+  </div>
+
+  <workout-comparison-row
+    label="Distance"
+    [current]="current().distanceMeters"
+    [baseline]="baseline().distanceMeters"
+    unit="m"
+  />
+  <workout-comparison-row
+    label="Duration"
+    [current]="current().timing.durationSeconds | duration"
+    [baseline]="baseline().timing.durationSeconds | duration"
+  />
+  <workout-comparison-row
+    label="Average pace"
+    [current]="current().averagePaceSecondsPer100m | duration"
+    [baseline]="baseline().averagePaceSecondsPer100m | duration"
+    unit="/100 m"
+  />
+  <workout-comparison-row
+    label="Average HR"
+    [current]="current().heartRate.averageBpm"
+    [baseline]="baseline().heartRate.averageBpm"
+    unit="bpm"
+  />
+  <workout-comparison-row
+    label="Distance / stroke"
+    [current]="current().stroke.averageDistancePerStrokeMeters"
+    [baseline]="baseline().stroke.averageDistancePerStrokeMeters"
+    unit="m"
+  />
+</div>

@@ -1,0 +1,21 @@
+.baseline-picker {
+  display: grid;
+  gap: 8px;
+  max-width: 520px;
+}
+.baseline-picker > span {
+  color: var(--workout-accent, var(--sl-accent));
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.baseline-picker select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--sl-border);
+  border-radius: 10px;
+  background: var(--sl-surface);
+  color: var(--sl-text);
+}

@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+.compare-page {
+  display: grid;
+  gap: 20px;
+}

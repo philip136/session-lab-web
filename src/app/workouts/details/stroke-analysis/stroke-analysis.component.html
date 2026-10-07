@@ -1,0 +1,42 @@
+<section class="stroke-page">
+  <app-page-header
+    eyebrow="Stroke analysis"
+    title="Technique numbers"
+    description="Distance and stroke totals across the active parts of the workout."
+  />
+
+  <section class="metrics-grid">
+    <workout-metric
+      icon="lucideWaves"
+      label="Total strokes"
+      [value]="workout().stroke.count"
+      unit=""
+    />
+    <workout-metric
+      icon="lucideActivity"
+      label="Average rate"
+      [value]="workout().stroke.averageRatePerMinute"
+      unit="/min"
+    />
+    <workout-metric
+      icon="lucideRuler"
+      label="Distance / stroke"
+      [value]="workout().stroke.averageDistancePerStrokeMeters"
+      unit="m"
+    />
+  </section>
+
+  <app-content-panel
+    title="Stroke distribution"
+    description="Distance and stroke count grouped by swimming style."
+  >
+    <app-resource-view
+      loadingText="Loading stroke analysis…"
+      errorText="Stroke analysis is unavailable. Check the backend endpoint."
+    >
+      <ng-template [resourceData]="analysis" let-analysisData>
+        <workout-stroke-distribution [items]="analysisData.distribution" />
+      </ng-template>
+    </app-resource-view>
+  </app-content-panel>
+</section>

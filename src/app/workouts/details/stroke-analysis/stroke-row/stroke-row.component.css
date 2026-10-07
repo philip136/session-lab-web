@@ -1,0 +1,15 @@
+.stroke-row {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3, 1fr);
+  gap: 16px;
+  padding: 13px 16px;
+  border-top: 1px solid var(--sl-border-soft);
+}
+@media (max-width: 800px) {
+  .stroke-row {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+  .stroke-row span:last-child {
+    display: none;
+  }
+}

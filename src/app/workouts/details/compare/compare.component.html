@@ -1,0 +1,30 @@
+<section class="compare-page">
+  <app-page-header
+    eyebrow="Compare"
+    title="Workout comparison"
+    description="Select another imported workout and compare the main session metrics."
+  />
+
+  <app-resource-view
+    loadingText="Loading workouts…"
+    errorText="Could not load workouts for comparison."
+  >
+    <ng-template [resourceData]="workouts" let-workoutList>
+      <workout-baseline-picker
+        [workouts]="workoutList"
+        [currentWorkoutId]="workout().id"
+        [selectedId]="baselineId()"
+        (selectedIdChange)="baselineId.set($event)"
+      />
+    </ng-template>
+  </app-resource-view>
+
+  <app-resource-view
+    loadingText="Loading baseline…"
+    errorText="Could not load the selected baseline workout."
+  >
+    <ng-template [resourceData]="baseline" let-baselineWorkout>
+      <workout-comparison-table [current]="workout()" [baseline]="baselineWorkout" />
+    </ng-template>
+  </app-resource-view>
+</section>

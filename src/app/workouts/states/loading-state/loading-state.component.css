@@ -1,0 +1,81 @@
+:host {
+  display: block;
+}
+
+.loading-state {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  min-height: 150px;
+  padding: 34px 22px;
+  border: 1px solid var(--sl-border);
+  border-radius: var(--sl-radius-md);
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      color-mix(in srgb, var(--workout-accent, var(--sl-accent)) 10%, transparent),
+      transparent 48%
+    ),
+    var(--sl-surface);
+}
+
+.wave-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 84px;
+  height: 46px;
+}
+
+.wave-loader span {
+  width: 7px;
+  height: 30px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    var(--workout-accent, var(--sl-accent)),
+    var(--workout-accent-strong, var(--sl-accent-strong))
+  );
+  box-shadow: 0 0 16px color-mix(in srgb, var(--workout-accent, var(--sl-accent)) 28%, transparent);
+  animation: swim-wave 1.15s ease-in-out infinite;
+}
+.wave-loader span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave-loader span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave-loader span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave-loader span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.loading-state p {
+  margin: 0;
+  color: color-mix(in srgb, var(--workout-accent, var(--sl-accent)) 70%, var(--sl-text-muted));
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+}
+
+@keyframes swim-wave {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-loader span {
+    animation: none;
+    transform: scaleY(0.65);
+  }
+}

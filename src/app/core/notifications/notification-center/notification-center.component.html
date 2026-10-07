@@ -1,0 +1,71 @@
+<div class="notification-center">
+  <button
+    class="notification-trigger"
+    type="button"
+    aria-label="Notifications"
+    [attr.aria-expanded]="open()"
+    (click)="toggle()"
+  >
+    <ng-icon name="lucideBell" aria-hidden="true" />
+    @if (notifications.unreadCount() > 0) {
+      <span class="notification-trigger__badge">{{ notifications.unreadCount() }}</span>
+    }
+  </button>
+
+  @if (open()) {
+    <aside class="notification-panel" aria-label="Notification history">
+      <header class="notification-panel__header">
+        <div>
+          <span>Session log</span>
+          <strong>Notifications</strong>
+        </div>
+        @if (notifications.notifications().length > 0) {
+          <button type="button" class="notification-panel__clear" (click)="notifications.clear()">
+            Clear
+          </button>
+        }
+      </header>
+
+      <div class="notification-panel__list">
+        @for (notification of notifications.notifications(); track notification.id) {
+          <article class="notification-item" [attr.data-kind]="notification.kind">
+            <span class="notification-item__signal" aria-hidden="true"></span>
+            <div class="notification-item__copy">
+              <div class="notification-item__title-row">
+                <strong>{{ notification.title }}</strong>
+                <time>{{ notification.createdAt | date: 'shortTime' }}</time>
+              </div>
+              <p>{{ notification.message }}</p>
+            </div>
+            <button
+              type="button"
+              class="notification-item__remove"
+              aria-label="Delete notification"
+              (click)="notifications.remove(notification.id)"
+            >
+              <ng-icon name="lucideX" aria-hidden="true" />
+            </button>
+          </article>
+        } @empty {
+          <div class="notification-panel__empty">
+            <span class="notification-panel__wave" aria-hidden="true"></span>
+            <p>No notifications yet.</p>
+          </div>
+        }
+      </div>
+    </aside>
+  }
+
+  @if (visibleToast(); as notification) {
+    <aside class="notification-toast" [attr.data-kind]="notification.kind" role="status">
+      <span class="notification-toast__wave" aria-hidden="true"></span>
+      <div>
+        <strong>{{ notification.title }}</strong>
+        <p>{{ notification.message }}</p>
+      </div>
+      <button type="button" aria-label="Dismiss notification" (click)="closeToast(notification.id)">
+        <ng-icon name="lucideX" aria-hidden="true" />
+      </button>
+    </aside>
+  }
+</div>

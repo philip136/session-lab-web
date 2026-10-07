@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+.laps-page {
+  display: grid;
+  gap: 20px;
+}
+.laps-list {
+  display: grid;
+  gap: 12px;
+}

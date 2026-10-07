@@ -1,0 +1,12 @@
+<div class="stroke-table">
+  <div class="stroke-table__header">
+    <span>Stroke</span>
+    <span>Distance</span>
+    <span>Share</span>
+    <span>Strokes</span>
+  </div>
+
+  @for (item of items(); track item.stroke) {
+    <workout-stroke-row [item]="item" />
+  }
+</div>

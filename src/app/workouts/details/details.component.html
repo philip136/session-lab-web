@@ -1,0 +1,26 @@
+<div class="workout-theme--swimming">
+  <app-resource-view
+    loadingText="Loading workout…"
+    errorText="Could not load this workout. Check the API and the workout id."
+  >
+    <ng-template [resourceData]="workout" let-currentWorkout>
+      <section class="workout-details">
+        <workout-header [workout]="currentWorkout" />
+
+        <nav class="workout-tabs" aria-label="Workout details">
+          <a routerLink="overview" routerLinkActive="workout-tabs__link--active">Overview</a>
+          <a routerLink="laps-sets" routerLinkActive="workout-tabs__link--active">Laps & Sets</a>
+          <a routerLink="stroke-analysis" routerLinkActive="workout-tabs__link--active"
+            >Stroke Analysis</a
+          >
+          <a routerLink="hr-zones" routerLinkActive="workout-tabs__link--active">HR & Zones</a>
+          <a routerLink="compare" routerLinkActive="workout-tabs__link--active">Compare</a>
+        </nav>
+
+        <div class="workout-details__content">
+          <router-outlet [routerOutletData]="currentWorkout" />
+        </div>
+      </section>
+    </ng-template>
+  </app-resource-view>
+</div>

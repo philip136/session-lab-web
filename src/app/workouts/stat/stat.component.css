@@ -1,0 +1,21 @@
+.stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 10px;
+  border-top: 1px solid var(--sl-border-soft);
+}
+.stat__label {
+  color: var(--sl-text-muted);
+}
+.stat strong {
+  text-align: right;
+}
+.stat__unit {
+  margin-left: 4px;
+  color: var(--sl-text-muted);
+  font-weight: 500;
+}
+.stat__unit:empty {
+  margin-left: 0;
+}

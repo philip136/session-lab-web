@@ -1,0 +1,25 @@
+<header class="workout-hero">
+  <div class="workout-hero__inner">
+    <div class="workout-hero__content">
+      <h1>{{ workout().name }}</h1>
+
+      <div class="workout-hero__meta">
+        <span
+          ><ng-icon name="lucideWaves" aria-hidden="true" />{{ workout().sport | titlecase }}</span
+        >
+        <span
+          ><ng-icon name="lucideCalendarDays" aria-hidden="true" />{{
+            workout().startedAt | date: 'medium'
+          }}</span
+        >
+        <span
+          ><ng-icon name="lucideRuler" aria-hidden="true" />{{ workout().distanceMeters }} m</span
+        >
+        <span
+          ><ng-icon name="lucideActivity" aria-hidden="true" />{{ workout().poolLengthMeters }} m
+          pool</span
+        >
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,36 @@
+<section class="hr-page">
+  <app-page-header
+    eyebrow="Heart rate"
+    title="Effort & zones"
+    description="Review overall effort and time spent in each heart-rate zone."
+  />
+
+  <section class="metrics-grid">
+    <workout-metric
+      icon="lucideHeartPulse"
+      label="Average HR"
+      [value]="workout().heartRate.averageBpm"
+      unit="bpm"
+    />
+    <workout-metric
+      icon="lucideActivity"
+      label="Maximum HR"
+      [value]="workout().heartRate.maxBpm"
+      unit="bpm"
+    />
+  </section>
+
+  <app-content-panel
+    title="Time in zones"
+    description="Distribution by the configured heart-rate zones."
+  >
+    <app-resource-view
+      loadingText="Loading heart-rate analysis…"
+      errorText="Heart-rate analysis is unavailable. Check the backend endpoint."
+    >
+      <ng-template [resourceData]="zones" let-zoneData>
+        <workout-zone-list [zones]="zoneData.zones" />
+      </ng-template>
+    </app-resource-view>
+  </app-content-panel>
+</section>

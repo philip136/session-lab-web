@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.workout-theme--swimming {
+  display: block;
+  min-height: calc(100vh - 64px);
+  --workout-accent: #25d0ee;
+  --workout-accent-strong: #00bddd;
+  --workout-accent-soft: rgba(37, 208, 238, 0.12);
+}
+
+.workout-details {
+  min-height: calc(100vh - 64px);
+}
+
+.workout-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 max(18px, calc((100% - 1540px) / 2 + 42px));
+  overflow-x: auto;
+  border-bottom: 1px solid var(--sl-border-soft);
+  background: rgba(7, 19, 31, 0.94);
+  scrollbar-width: none;
+}
+
+.workout-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.workout-tabs a {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 18px 16px;
+  color: var(--sl-text-muted);
+  font-size: 14px;
+}
+
+.workout-tabs a:hover {
+  color: var(--sl-text);
+}
+.workout-tabs__link--active {
+  color: var(--workout-accent) !important;
+}
+.workout-tabs__link--active::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  left: 12px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--workout-accent);
+}
+
+.workout-details__content {
+  width: min(1540px, 100%);
+  margin: 0 auto;
+  padding: 24px 32px 40px;
+}
+
+@media (max-width: 700px) {
+  .workout-tabs {
+    padding: 0 8px;
+  }
+  .workout-details__content {
+    padding: 18px 14px 30px;
+  }
+}

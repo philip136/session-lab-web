@@ -1,0 +1,38 @@
+<details class="lap-card" [open]="open()">
+  <summary>
+    <div>
+      <strong>Lap {{ number() }}</strong>
+      <span>{{ lap().distanceMeters }} m · {{ lap().durationSeconds | duration }}</span>
+    </div>
+    <div class="lap-card__summary-metrics">
+      <span>{{ lap().averagePaceSecondsPer100m | duration }} /100 m</span>
+      <span>{{ lap().averageHeartRateBpm }} bpm</span>
+    </div>
+  </summary>
+
+  <div class="lap-card__body">
+    <div class="lap-metrics">
+      <app-stat
+        label="Active lengths"
+        [value]="lap().lengths.active + ' / ' + lap().lengths.total"
+      />
+      <app-stat label="Strokes" [value]="lap().stroke.count" />
+      <app-stat label="Stroke rate" [value]="lap().stroke.averageRatePerMinute" unit="/min" />
+      <app-stat
+        label="Distance / stroke"
+        [value]="lap().stroke.averageDistancePerStrokeMeters"
+        unit="m"
+      />
+    </div>
+
+    <div class="segments-list">
+      @for (segment of lap().segments; track $index) {
+        @if (segment.type === 'active') {
+          <workout-active-segment [segment]="segment" [number]="$index + 1" />
+        } @else {
+          <workout-rest-segment [segment]="segment" [number]="$index + 1" />
+        }
+      }
+    </div>
+  </div>
+</details>

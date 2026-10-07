@@ -1,0 +1,52 @@
+<div class="overview-page">
+  <section class="metrics-grid" aria-label="Workout summary">
+    <workout-metric
+      icon="lucideRuler"
+      label="Distance"
+      [value]="workout().distanceMeters"
+      unit="m"
+    />
+    <workout-metric
+      icon="lucideActivity"
+      label="Duration"
+      [value]="workout().timing.durationSeconds | duration"
+      unit=""
+    />
+    <workout-metric
+      icon="lucideWaves"
+      label="Average pace"
+      [value]="workout().averagePaceSecondsPer100m | duration"
+      unit="/100 m"
+    />
+    <workout-metric
+      icon="lucideHeartPulse"
+      label="Average HR"
+      [value]="workout().heartRate.averageBpm"
+      unit="bpm"
+    />
+  </section>
+
+  <section class="overview-grid">
+    <app-summary-panel eyebrow="Timing" title="Session time">
+      <app-stat label="Swim" [value]="workout().timing.swimSeconds | duration" />
+      <app-stat label="Rest" [value]="workout().timing.restSeconds | duration" />
+      <app-stat label="Elapsed" [value]="workout().timing.elapsedSeconds | duration" />
+    </app-summary-panel>
+
+    <app-summary-panel eyebrow="Heart rate" title="Effort">
+      <app-stat label="Average" [value]="workout().heartRate.averageBpm" unit="bpm" />
+      <app-stat label="Maximum" [value]="workout().heartRate.maxBpm" unit="bpm" />
+      <app-stat label="Calories" [value]="workout().calories" unit="kcal" />
+    </app-summary-panel>
+
+    <app-summary-panel eyebrow="Stroke" title="Efficiency">
+      <app-stat label="Total strokes" [value]="workout().stroke.count" />
+      <app-stat label="Average rate" [value]="workout().stroke.averageRatePerMinute" unit="/min" />
+      <app-stat
+        label="Distance / stroke"
+        [value]="workout().stroke.averageDistancePerStrokeMeters"
+        unit="m"
+      />
+    </app-summary-panel>
+  </section>
+</div>

@@ -1,0 +1,10 @@
+@if (content().resourceData().isLoading()) {
+  <app-loading-state [message]="loadingText()" />
+} @else if (content().resourceData().error()) {
+  <app-error-state [message]="errorText()" />
+} @else if (content().resourceData().hasValue()) {
+  <ng-container
+    [ngTemplateOutlet]="content().template"
+    [ngTemplateOutletContext]="{ $implicit: content().resourceData().value() }"
+  />
+}

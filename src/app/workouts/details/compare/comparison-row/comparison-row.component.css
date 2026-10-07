@@ -1,0 +1,30 @@
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 20px;
+  padding: 15px 18px;
+  border-top: 1px solid var(--sl-border-soft);
+}
+.comparison-row > span {
+  color: var(--sl-text-muted);
+}
+.comparison-row small {
+  margin-left: 4px;
+  color: var(--sl-text-muted);
+  font-size: inherit;
+  font-weight: 500;
+}
+@media (max-width: 650px) {
+  .comparison-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .comparison-row strong:last-child {
+    grid-column: 2;
+  }
+  .comparison-row > span {
+    grid-row: span 2;
+  }
+}
+.comparison-row small:empty {
+  margin-left: 0;
+}

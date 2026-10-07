@@ -1,0 +1,58 @@
+:host {
+  display: block;
+}
+.import-page {
+  display: grid;
+  place-items: start center;
+  min-height: calc(100vh - 64px);
+  padding: 64px 14px;
+}
+.import-card {
+  display: grid;
+  gap: 20px;
+  width: min(560px, 100%);
+  padding: 32px;
+  border: 1px solid var(--sl-border);
+  border-radius: var(--sl-radius-lg);
+  background: var(--sl-surface);
+  box-shadow: var(--sl-shadow);
+}
+.import-card__icon {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--sl-accent-soft);
+  color: var(--sl-accent);
+  font-size: 24px;
+}
+.file-picker {
+  display: block;
+  padding: 16px;
+  border: 1px dashed var(--sl-border);
+  border-radius: 12px;
+  cursor: pointer;
+  background: var(--sl-bg-deep);
+}
+.file-picker input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.file-picker span {
+  color: var(--sl-text-muted);
+}
+.import-card button {
+  width: 100%;
+  min-height: 46px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--sl-accent);
+  color: var(--sl-bg-deep);
+  font-weight: 800;
+  cursor: pointer;
+}
+.import-card button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}

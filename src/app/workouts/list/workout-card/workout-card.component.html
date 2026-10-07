@@ -1,0 +1,12 @@
+<a class="workout-card" [routerLink]="[workout().id, 'overview']">
+  <div class="workout-card__icon"><ng-icon name="lucideWaves" aria-hidden="true" /></div>
+  <div class="workout-card__content">
+    <span>{{ workout().startedAt | date: 'medium' }}</span>
+    <h2>{{ workout().name }}</h2>
+    <p>
+      {{ workout().distanceMeters }} m · {{ workout().durationSeconds | duration }} ·
+      {{ workout().poolLengthMeters }} m pool
+    </p>
+  </div>
+  <ng-icon class="workout-card__open" name="lucideChevronRight" aria-hidden="true" />
+</a>

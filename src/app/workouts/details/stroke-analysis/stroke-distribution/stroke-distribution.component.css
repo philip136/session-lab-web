@@ -1,0 +1,24 @@
+.stroke-table {
+  border: 1px solid var(--sl-border-soft);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.stroke-table__header {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3, 1fr);
+  gap: 16px;
+  padding: 13px 16px;
+  background: var(--sl-surface-2);
+  color: var(--sl-text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 800px) {
+  .stroke-table__header {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+  .stroke-table__header span:last-child {
+    display: none;
+  }
+}

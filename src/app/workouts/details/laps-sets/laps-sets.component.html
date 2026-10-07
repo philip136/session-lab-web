@@ -1,0 +1,13 @@
+<section class="laps-page">
+  <app-page-header
+    eyebrow="Laps & sets"
+    title="Workout structure"
+    description="Review lap summaries and the active/rest segments inside each lap."
+  />
+
+  <div class="laps-list">
+    @for (lap of workout().laps; track $index) {
+      <workout-lap-card [lap]="lap" [number]="$index + 1" [open]="$first" />
+    }
+  </div>
+</section>

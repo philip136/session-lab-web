@@ -1,0 +1,33 @@
+<section class="import-page">
+  <article class="import-card">
+    <ng-icon class="import-card__icon" name="lucideUpload" aria-hidden="true" />
+
+    <app-page-header
+      eyebrow="Import"
+      title="Import FIT workout"
+      description="Select a supported pool-swimming FIT file. SessionLab opens the new workout after a successful import."
+      [level]="1"
+    />
+
+    <label class="file-picker">
+      <input type="file" accept=".fit" (change)="selectFile($event)" />
+      <span>{{ selectedFile()?.name ?? 'Choose FIT file' }}</span>
+    </label>
+
+    <button
+      type="button"
+      [disabled]="selectedFile() === null || status() === 'uploading'"
+      (click)="upload()"
+    >
+      @if (status() === 'uploading') {
+        Importing…
+      } @else {
+        Import workout
+      }
+    </button>
+
+    @if (status() === 'error') {
+      <app-error-state message="Could not import this FIT file. Check the backend logs." />
+    }
+  </article>
+</section>

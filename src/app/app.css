@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0 max(18px, calc((100% - 1540px) / 2 + 42px));
+  border-bottom: 1px solid var(--sl-border-soft);
+  background: rgba(4, 16, 26, 0.96);
+  backdrop-filter: blur(16px);
+}
+
+.app-brand,
+.app-nav,
+.app-nav a,
+.app-header__right {
+  display: flex;
+  align-items: center;
+}
+
+.app-header__right {
+  gap: 12px;
+}
+.app-brand {
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.app-brand ng-icon {
+  color: var(--sl-accent);
+  font-size: 22px;
+}
+.app-nav {
+  gap: 6px;
+}
+.app-nav a {
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  color: var(--sl-text-muted);
+  font-size: 14px;
+}
+.app-nav a:hover,
+.app-nav__link--active {
+  color: var(--sl-text) !important;
+  background: var(--sl-accent-soft);
+}
+
+@media (max-width: 700px) {
+  .app-header {
+    padding: 0 14px;
+  }
+  .app-brand span {
+    display: none;
+  }
+  .app-nav a {
+    padding: 0 9px;
+  }
+}

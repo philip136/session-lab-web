@@ -1,0 +1,28 @@
+<section class="workouts-page">
+  <app-page-header
+    eyebrow="Workout history"
+    title="Swimming sessions"
+    description="Imported workouts from the backend. Open a session to inspect its details."
+    [level]="1"
+  >
+    <a pageHeaderActions class="import-link" routerLink="/import">
+      <ng-icon name="lucideUpload" aria-hidden="true" />
+      Import FIT
+    </a>
+  </app-page-header>
+
+  <app-resource-view
+    loadingText="Loading workouts…"
+    errorText="Could not load workouts. Check that the API is running."
+  >
+    <ng-template [resourceData]="workouts" let-workoutList>
+      <div class="workout-grid">
+        @for (workout of workoutList; track workout.id) {
+          <workout-card [workout]="workout" />
+        } @empty {
+          <div class="empty-state">No workouts yet. Import a FIT file to start.</div>
+        }
+      </div>
+    </ng-template>
+  </app-resource-view>
+</section>

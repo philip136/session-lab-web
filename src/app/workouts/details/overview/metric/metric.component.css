@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+.metric-card {
+  display: flex;
+  align-items: center;
+  min-height: 112px;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--sl-border);
+  border-radius: var(--sl-radius-md);
+  background: linear-gradient(145deg, var(--sl-surface-2), var(--sl-surface));
+  box-shadow: var(--sl-shadow);
+}
+.metric-card__icon {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--workout-accent-soft, var(--sl-accent-soft));
+  color: var(--workout-accent, var(--sl-accent));
+  font-size: 22px;
+}
+.metric-card__content {
+  min-width: 0;
+}
+.metric-card__label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--sl-text-muted);
+  font-size: 13px;
+}
+.metric-card__value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.metric-card__value strong {
+  font-size: 26px;
+  letter-spacing: -0.035em;
+}
+.metric-card__value span {
+  color: var(--sl-text-muted);
+  font-size: 13px;
+}

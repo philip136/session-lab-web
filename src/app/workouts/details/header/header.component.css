@@ -1,0 +1,65 @@
+.workout-hero {
+  min-height: 204px;
+  border-bottom: 1px solid var(--sl-border-soft);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 16, 26, 0.98) 0%,
+      rgba(4, 16, 26, 0.84) 43%,
+      rgba(4, 16, 26, 0.3) 100%
+    ),
+    url('./pool-hero-v14.png') center 50% / cover no-repeat;
+}
+
+.workout-hero__inner {
+  width: min(1540px, 100%);
+  margin: 0 auto;
+  padding: 44px 42px 34px;
+}
+
+.workout-hero__content {
+  max-width: 900px;
+  min-width: 0;
+}
+.workout-hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(34px, 3.2vw, 48px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.workout-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+  color: var(--sl-text-muted);
+}
+
+.workout-hero__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.workout-hero__meta ng-icon {
+  color: var(--workout-accent, var(--sl-accent));
+}
+.workout-hero__meta span:not(:last-child)::after {
+  content: '';
+  width: 1px;
+  height: 15px;
+  margin: 0 18px;
+  background: var(--sl-border);
+}
+
+@media (max-width: 700px) {
+  .workout-hero {
+    min-height: 220px;
+  }
+  .workout-hero__inner {
+    padding: 32px 20px;
+  }
+  .workout-hero__meta span:not(:last-child)::after {
+    margin: 0 10px;
+  }
+}

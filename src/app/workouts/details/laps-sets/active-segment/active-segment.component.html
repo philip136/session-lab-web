@@ -1,0 +1,10 @@
+<article class="segment-row">
+  <div>
+    <strong>{{ segment().stroke.type | titlecase }}</strong>
+    <span>Segment {{ number() }}</span>
+  </div>
+  <span>{{ segment().distanceMeters }} m</span>
+  <span>{{ segment().durationSeconds | duration }}</span>
+  <span>{{ segment().averagePaceSecondsPer100m | duration }} /100 m</span>
+  <span>{{ segment().stroke.count }} strokes</span>
+</article>
